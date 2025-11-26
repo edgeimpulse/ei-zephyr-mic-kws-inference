@@ -6,7 +6,7 @@ Drop in your model > build > flash > get real-time motion inference.
 ## Initialize This Repo
 
 ```bash
-git clone https://github.com/edgeimpulse/ei-zephyr-imu-inference.git
+ west init https://github.com/edgeimpulse/ei-zephyr-imu-inference.git
 cd ei-zephyr-imu-inference
 west update
 ```
