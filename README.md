@@ -1,7 +1,7 @@
-# Edge Impulse IMU Inference on Zephyr
+# Edge Impulse Microphone Inference on Zephyr
 
-This repository demonstrates how to run IMU-based Edge Impulse models on Zephyr using the **Edge Impulse Zephyr Module**.  
-Drop in your model > build > flash > get real-time motion inference.
+This repository demonstrates how to run microphone-based Edge Impulse models on Zephyr using the **Edge Impulse Zephyr Module**.  
+Drop in your model > build > flash > get real-time audio inference.
 
 ## Initialize This Repo
 
@@ -57,9 +57,9 @@ west flash --runner nrfjprog
 west flash --runner openocd
 ```
 
-## Sensors Supported
+## Microphones Supported
 
-All sensors accessible through I²C/SPI + Zephyr sensor drivers are compatible.
+PDM microphones accessible through Zephyr's DMIC driver are compatible.
 
 ## Project Structure
 
@@ -71,14 +71,14 @@ All sensors accessible through I²C/SPI + Zephyr sensor drivers are compatible.
 └── src/
     ├── main.cpp
     ├── inference/          # Inference state machine
-    └── sensors/            # IMU interface
+    └── microphone/         # Microphone interface
 ```
 
 ## How It Works
 
-1. **Initialize** - Sensor setup via Zephyr sensor API
-2. **Sample** - Continuous data collection at model frequency
-3. **Buffer** - Circular buffer stores samples
+1. **Initialize** - Microphone setup via Zephyr DMIC API
+2. **Sample** - Continuous audio data collection at model frequency
+3. **Buffer** - Circular buffer stores audio samples
 4. **Infer** - Run classifier when buffer full
 5. **Output** - Print classification results
 6. **Loop** - Repeat
@@ -88,10 +88,9 @@ All sensors accessible through I²C/SPI + Zephyr sensor drivers are compatible.
 Key settings in `prj.conf`:
 
 ```properties
-CONFIG_EDGE_IMPULSE_SDK=y        # Enable Edge Impulse SDK
 CONFIG_MAIN_STACK_SIZE=8192      # Adjust for your model size
-CONFIG_SENSOR=y                  # Enable sensor subsystem
-CONFIG_I2C=y                     # Enable I2C for sensors
+CONFIG_AUDIO=y                   # Enable audio subsystem
+CONFIG_AUDIO_DMIC=y              # Enable DMIC for PDM microphones
 ```
 
 For larger models, increase stack size:
