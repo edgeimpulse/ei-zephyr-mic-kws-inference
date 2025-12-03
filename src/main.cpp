@@ -35,7 +35,6 @@
 
 #include <zephyr/kernel.h>
 #include "sensors/ei_microphone.h"
-#include "sensors/ei_microphone.h"
 #include "inference/inferencing.h"
 #include <stdio.h>
 

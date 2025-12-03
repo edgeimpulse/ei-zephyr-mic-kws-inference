@@ -9,10 +9,11 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
 project(ei-zephyr-mic-kws-inference)
 
-include(utils/cmake/utils.cmake)
-
 # Needed for colorful output
 zephyr_compile_options(-fdiagnostics-color=always)
+
+# Disable warnings as errors for Edge Impulse SDK
+zephyr_compile_options($<$<COMPILE_LANGUAGE:CXX>:-Wno-error=maybe-uninitialized>)
 
 # Project include directories
 set(INCLUDES

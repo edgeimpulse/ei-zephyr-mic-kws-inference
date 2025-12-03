@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include "microphone/ei_microphone.h"
+#include "sensors/ei_microphone.h"
 #include "model-parameters/model_metadata.h"
 #include "edge-impulse-sdk/porting/ei_classifier_porting.h"
 
@@ -27,7 +27,7 @@
 static bool is_sampling = false;
 
 // DMIC device
-static const struct device *dmic_dev = DEVICE_DT_GET(DT_NODELABEL(dmic_dev));
+static const struct device *dmic_dev = DEVICE_DT_GET(DT_NODELABEL(pdm0));
 
 // DMIC memory slab
 K_MEM_SLAB_DEFINE_STATIC(dmic_rx_mem_slab, BLOCK_SIZE, PCM_BUF_COUNT, 4);
