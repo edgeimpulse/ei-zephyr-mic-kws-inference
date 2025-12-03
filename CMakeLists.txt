@@ -23,5 +23,5 @@ include_directories(${INCLUDES})
 
 # add all sources to the project
 target_sources(app PRIVATE src/main.cpp)
-target_sources(app PRIVATE src/sensorsei_microphone.cpp)
+target_sources(app PRIVATE src/sensors/ei_microphone.cpp)
 target_sources(app PRIVATE src/inference/inferencing.cpp)
