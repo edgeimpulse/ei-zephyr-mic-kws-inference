@@ -61,6 +61,10 @@ west flash --runner openocd
 
 PDM microphones accessible through Zephyr's DMIC driver are compatible.
 
+## Shield supported
+
+The example has been tested with the [X-NUCLEO-IKS02A1](https://www.st.com/en/evaluation-tools/x-nucleo-iks02a1.html) shield.
+
 ## Project Structure
 
 ```
